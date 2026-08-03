@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Neon CV - Jahidul Islam</title>
+    <!-- Google Fonts import -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #090d16;
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 20px 10px;
+        }
+
+        .cv-wrapper {
+            padding: 24px;
+            width: 100%;
+            max-width: 950px;
+            background: #0b1120;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Header Card */
+        .header-card {
+            background: #0f172a;
+            border: 1px solid #38bdf8;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-frame {
+            width: 130px;
+            height: 150px;
+            border-radius: 12px;
+            border: 2px solid #38bdf8;
+            overflow: hidden;
+            background: #1e293b;
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+            flex-shrink: 0;
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-right {
+            flex-grow: 1;
+        }
+        
+
+        .main-title {
+            font-size: 13pt;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .name-title {
+            font-family: 'Times New Roman', Georgia, serif;
+            font-size: 26pt;
+            font-weight: bold;
+            margin: 5px 0 12px 0;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        /* Skills Section Styling */
+    .section {
+    margin-bottom: 25px;
+    } 
+
+    .section h2 {
+      font-size: 1.1rem;
+      color: #38bdf8;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+      padding-bottom: 8px;
+    }
+
+    /* Skills Grid Layout */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Individual Skill Tag Style */
+    .skill-tag {
+      background: rgba(16, 185, 129, 0.1);
+      color: #38bdf8;
+      border: 1px solid #38bdf8;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+     gap: 8px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+    }
+
+/* Hover Effect - মাউস নিলে সুন্দর গ্লো করবে */
+.skill-tag:hover {
+    background:#38bdf8;
+    color: #061811;
+    font-weight: 600;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+     /* Icon Inside Skill Tag */
+     .skill-tag i {
+      font-size: 1rem;
+}
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 9pt;
+            color: #cbd5e1;
+        }
+
+        .contact-pill {
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          padding: 6px 14px;
+          border-radius: 20px;
+          color: #cbd5e1;           /* লেখার কালার */
+          text-decoration: none;     /* নিচের দাগ বা আন্ডারলাইন সরানোর জন্য */
+          display: inline-block;
+          transition: all 0.3s ease;
+        }
+
+   /* মাউস হোভার করলে (Hover Effect) */
+        .contact-pill:hover {
+        border-color: #38bdf8;
+        color: #38bdf8;
+        background: rgba(56, 189, 248, 0.1);
+        box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+      }
+
+        /* Glass Cards */
+        .glass-card {
+            background: #0f172a;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-title {
+            font-family: 'Times New Roman', Georgia, serif;
+            font-size: 13pt;
+            font-weight: bold;
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 16px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.4);
+        }
+
+        /* List Styles */
+        .custom-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 9.5pt;
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 10px;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+
+        .custom-list li::before {
+            content: "♦";
+            position: absolute;
+            left: 0;
+            color: #818cf8;
+            font-size: 8pt;
+        }
+
+        .p-desc {
+            font-size: 9.5pt;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin: 0;
+        }
+
+        /* Experience Items (Photo Style Matching) */
+        .exp-box {
+            background: rgba(15, 23, 42, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 12px 0;
+            margin-bottom: 14px;
+        }
+
+        .exp-box:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .job-title {
+            font-family: 'Times New Roman', Georgia, serif;
+            font-size: 13pt;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 3px;
+        }
+
+        .company-name {
+            font-size: 9.5pt;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .duration-badge {
+            display: inline-block;
+            font-size: 8.5pt;
+            color: #ff4d6d;
+            background: rgba(80, 10, 25, 0.6);
+            border: 1px solid #b91c1c;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        /* Tables */
+        .table-3d {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9pt;
+        }
+
+        .table-3d td {
+            padding: 7px 0;
+            color: #cbd5e1;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .table-3d td.lbl {
+            font-weight: 600;
+            color: #38bdf8;
+            width: 30%;
+        }
+
+        .table-3d td.colon {
+            width: 5%;
+            color: #38bdf8;
+        }
+
+        /* Declaration & Signature */
+        .signature-area {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 9.5pt;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        @media (max-width: 768px) {
+            .header-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-grid {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-wrapper">
+    
+    <!-- Header Area -->
+    <div class="header-card">
+        <div class="profile-frame">
+            <img src="https://i.postimg.cc/VkmyHhv8/ME.png" alt="Jahidul Islam">
+        </div>
+        <div class="header-right">
+            <h2 class="main-title">CURRICULUM VITAE</h2>
+            <h1 class="name-title"> MD JAHIDUL ISLAM</h1>
+            
+           <div class="contact-grid">
+             <a href="tel:+97455219521" class="contact-pill">📞 +974 55219521</a>
+    
+             <!-- ইমেইলে ক্লিক করলে সরাসরি ইমেইল অপশন খুলবে -->
+              <a href="mailto:mdjahidulislamforhad770@gmail.com" class="contact-pill">✉️ mdjahidulislamforhad770@gmail.com</a>
+              <span class="contact-pill">📍 Doha – Qatar</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Objective -->
+    <div class="glass-card">
+        <h3 class="card-title">OBJECTIVE</h3>
+        <p class="p-desc">
+            To perform a challenging job that will utilize my knowledge, skills, energy and optimistic attitude/approach in a result oriented & rewards driven career to enhance performance of the organization with the help of my powerful dedication and energetic enthusiasm.
+        </p>
+    </div>
+
+    <!-- Background -->
+    <div class="glass-card">
+        <h3 class="card-title">BACKGROUND</h3>
+        <p class="p-desc">
+            Supervisor, Customer Care services and Office Management Skills with proficiency in Microsoft Office package. Support the various functions to ensure the availability, security, traceability, and retrieval of indexed documents and records by managing and operating a document control system in accordance with the requirements of ISO 9001 and experience in Middle East & Bangladesh.
+        </p>
+    </div>
+
+    <!-- Personal Skills -->
+    <div class="glass-card">
+        <h3 class="card-title">PERSONAL SKILLS</h3>
+        <ul class="custom-list">
+            <li>Excellent sense of responsibility.</li>
+            <li>Organized dedication with positive attitude towards pressure of work.</li>
+            <li>Strong team working skills coupled with the ability to motivate team mates “Believe in team work”.</li>
+            <li>Achieving the set objectives.</li>
+            <li>Adaptable to any environment.</li>
+            <li>Excellent communication and co-operation skills.</li>
+        </ul>
+    </div>
+    
+       <!-- Skills Section -->
+       <section class="section">
+        <h2><i class="fa-solid fa-code"></i> My Skills</h2>
+          <div class="skills-grid">
+           <span class="skill-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+           <span class="skill-tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+           <span class="skill-tag"><i class="fa-solid fa-file-excel"></i> MS Excel</span>
+           <span class="skill-tag"><i class="fa-solid fa-file-word"></i> MS Word</span>
+           <span class="skill-tag"><i class="fa-solid fa-file-invoice-dollar"></i> Marg ERP 9+</span>
+           <span class="skill-tag"><i class="fa-solid fa-image"></i> Adobe Photoshop</span>
+           <span class="skill-tag"><i class="fa-solid fa-fire"></i> Firebase</span>
+           <!-- <span class="skill-tag"><i class="fa-brands fa-github"></i> GitHub</span> -->
+          </div>
+      </section>
+
+    <!-- Areas of Expertise -->
+    <div class="glass-card">
+        <h3 class="card-title">AREAS OF EXPERTISE & KEY SKILLS INCLUDE</h3>
+        <ul class="custom-list">
+            <li>Supervisor</li>
+            <li>Customer Care services</li>
+            <li>Secretary & Data entry</li>
+            <li>Time keeper & store keeper</li>
+            <li>Research and Data Collector</li>
+        </ul>
+    </div>
+
+    <!-- Working Experience -->
+    <div class="glass-card">
+        <h3 class="card-title">WORK EXPERIENCE</h3>
+
+        <div class="exp-box">
+            <div class="job-title">Computer Operator & Data Entry </div>
+            <div class="company-name">Wildan Trading W.L.L</div>
+            <span class="duration-badge">⏰ October 2025 - Present</span>
+        </div>
+        
+        <div class="exp-box">
+            <div class="job-title">Research and Data Collector Supervisor</div>
+            <div class="company-name">Social & Economic Survey Research Institute (SESRI) in Qatar University</div>
+            <span class="duration-badge">⏰ November 2024 -December 2024 </span>
+        </div>
+
+        <div class="exp-box">
+            <div class="job-title">Customer Care Services Specialist</div>
+            <div class="company-name">Royal Trading Services W.L.L — Doha, Qatar</div>
+            <span class="duration-badge">⏰ January 2025 - April 2025</span>
+        </div>
+
+        <div class="exp-box">
+            <div class="job-title">Computer Operator & Data Entry</div>
+            <div class="company-name">Unilever Bangladesh Ltd. — Mirpur, Dhaka</div>
+            <span class="duration-badge">⏰ 2 Years Experience (Dec 2022 - Oct 2024)</span>
+        </div>
+
+        <div class="exp-box">
+            <div class="job-title">Computer Operator & Data Entry</div>
+            <div class="company-name">Almas Super-shop — Dhaka, Bangladesh</div>
+            <span class="duration-badge">⏰ 3 Months Experience (Mar 2023 - Jul 2023)</span>
+        </div>
+         <p class="p-desc" style="margin-top: 8px; font-size: 8.5pt;">
+                <strong>Responsibilities:</strong> To arrange appointment for immediate supervisor. To attend all calls, incoming mails and convey to concern. To compile documentations. To update and collect all information's related to my immediate supervisors domain and compile in such a way that whenever required could provide.
+            </p>
+    </div>
+
+    <!-- Academic Qualification -->
+    <div class="glass-card">
+        <h3 class="card-title">ACADEMIC QUALIFICATION</h3>
+        
+        <div class="exp-box">
+            <div class="job-title">Higher Secondary Certificate (HSC)</div>
+            <div class="company-name">Nather Petua Degree College</div>
+            <div style="font-size: 9pt; color: #cbd5e1;">Group: Business Studies | Course Duration: 02 Years | Passing Year: 2024</div>
+        </div>
+
+        <div class="exp-box">
+            <div class="job-title">Secondary School Certificate (SSC)</div>
+            <div class="company-name">Lakshanpur Nurul Hoq High School — Monohorganj, Cumilla</div>
+            <div style="font-size: 9pt; color: #cbd5e1;">Group: Business Studies | Passing Year: 2022</div>
+        </div>
+    </div>
+
+    <!-- Computer Knowledge -->
+    <div class="glass-card">
+        <h3 class="card-title">COMPUTER KNOWLEDGE</h3>
+        <ul class="custom-list">
+            <li>Computer Maintenance</li>
+            <li>Hardware Troubleshooting</li>
+            <li>Microsoft Office (Word, Excel, PowerPoint and Email etc.)</li>
+        </ul>
+    </div>
+
+    <!-- Training Qualification -->
+    <div class="glass-card">
+        <h3 class="card-title">TRAINING QUALIFICATION</h3>
+        <div class="exp-box">
+            <div class="job-title">National Skill Standard Basic Course Certificate</div>
+            <div class="company-name">Digital Information Technology (1000029)</div>
+            <div style="font-size: 9pt; color: #cbd5e1;">Duration: 6 Months</div>
+        </div>
+    </div>
+
+    <!-- Personal Details -->
+    <div class="glass-card">
+        <h3 class="card-title">PERSONAL DETAILS</h3>
+        <table class="table-3d">
+            <tr><td class="lbl">Name</td><td class="colon">:</td><td>JAHIDUL ISLAM</td></tr>
+            <tr><td class="lbl">Father’s Name</td><td class="colon">:</td><td>YASIN ARAFAT</td></tr>
+            <tr><td class="lbl">Date of Birth</td><td class="colon">:</td><td>01/03/2005</td></tr>
+            <tr><td class="lbl">Nationality</td><td class="colon">:</td><td>Bangladeshi</td></tr>
+            <tr><td class="lbl">Sex</td><td class="colon">:</td><td>Male</td></tr>
+            <tr><td class="lbl">Marital Status</td><td class="colon">:</td><td>Unmarried</td></tr>
+            <tr><td class="lbl">Religion</td><td class="colon">:</td><td>Muslim</td></tr>
+            <tr><td class="lbl">QID No</td><td class="colon">:</td><td>30505004343</td></tr>
+            <tr><td class="lbl">Visa Status</td><td class="colon">:</td><td>Transferable</td></tr>
+        </table>
+    </div>
+
+    <!-- Passport Details -->
+    <div class="glass-card">
+        <h3 class="card-title">PASSPORT DETAILS</h3>
+        <table class="table-3d">
+            <tr><td class="lbl">No of passport</td><td class="colon">:</td><td>A 13192664</td></tr>
+            <tr><td class="lbl">Date of Issue</td><td class="colon">:</td><td>16/11/2023</td></tr>
+            <tr><td class="lbl">Date of expiry</td><td class="colon">:</td><td>15/11/2033</td></tr>
+            <tr><td class="lbl">Place of issue</td><td class="colon">:</td><td>Dhaka / Bangladesh</td></tr>
+        </table>
+    </div>
+
+    <!-- Languages -->
+    <div class="glass-card">
+        <h3 class="card-title">LANGUAGES</h3>
+        <table class="table-3d">
+            <tr><td class="lbl">Bangla</td><td class="colon">:</td><td>Reading, Writing and Speaking.</td></tr>
+            <tr><td class="lbl">Arabic</td><td class="colon">:</td><td>Speaking.</td></tr>
+            <tr><td class="lbl">English</td><td class="colon">:</td><td>Reading, Writing and Speaking.</td></tr>
+            <tr><td class="lbl">Hindi</td><td class="colon">:</td><td>Speaking.</td></tr>
+            <tr><td class="lbl">Urdu</td><td class="colon">:</td><td>Speaking.</td></tr>
+        </table>
+    </div>
+
+    <!-- Declaration -->
+    <div class="glass-card">
+        <h3 class="card-title">DECLARATION</h3>
+        <p class="p-desc">I hereby certify that all above mentioned information is true and correct to the best of my knowledge and belief.</p>
+        
+        <div class="signature-area">
+            <div>MD JAHIDUL ISLAM</div>
+            <div>Date: ---/---/-----, DOHA.</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
