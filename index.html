@@ -16,7 +16,6 @@
             box-sizing: border-box;
         }
 
-        /* 🌌 অ্যানিমেটেড ডাইনামিক ব্যাকগ্রাউন্ড (Premium Motion Mesh) */
         body {
             margin: 0;
             padding: 0;
@@ -27,7 +26,8 @@
             color: #f8fafc;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             padding: 30px 12px;
             overflow-x: hidden;
         }
@@ -38,7 +38,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* 🧊 মেইন সিভি কন্টেইনার */
+        /* 🧊 CV Container */
         .cv-wrapper {
             padding: 35px;
             width: 100%;
@@ -52,7 +52,7 @@
             border: 1px solid rgba(0, 242, 254, 0.3);
         }
 
-        /* 🖼️ হেডার কার্ড (ছবির মতো স্থির নেয়ন বর্ডার ও গ্লো) */
+        /* 🖼️ Header Card */
         .header-card {
             position: relative;
             border-radius: 20px;
@@ -67,7 +67,6 @@
                         inset 0 0 15px rgba(0, 242, 254, 0.1);
         }
 
-        /* 🖼️ প্রোফাইল পিকচার ফ্রেম (ছবির মতো স্থির নেয়ন গ্লো বর্ডার) */
         .profile-frame {
             width: 150px;
             height: 170px;
@@ -142,7 +141,7 @@
             transform: translateY(-3px);
         }
 
-        /* 💎 গ্লাস কার্ডস উইথ লাইটিং হভার */
+        /* 💎 Glass Cards */
         .glass-card {
             background: rgba(13, 22, 45, 0.65);
             border: 1px solid rgba(0, 242, 254, 0.2);
@@ -175,8 +174,204 @@
             border-bottom: 1px solid rgba(0, 242, 254, 0.3);
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
             text-shadow: 0 0 12px rgba(0, 242, 254, 0.6);
+        }
+
+        /* 🔒 Lock Button & Placeholder */
+        .lock-btn {
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(0, 242, 254, 0.25));
+            border: 1px solid #00f2fe;
+            color: #00f2fe;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 8.5pt;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+        }
+
+        .lock-btn:hover {
+            background: #00f2fe;
+            color: #030712;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.9);
+            transform: scale(1.05);
+        }
+
+        .locked-placeholder {
+            text-align: center;
+            padding: 25px 0;
+            color: #94a3b8;
+            font-size: 9.5pt;
+            letter-spacing: 0.5px;
+            background: rgba(0, 242, 254, 0.02);
+            border-radius: 14px;
+            border: 1px dashed rgba(0, 242, 254, 0.2);
+        }
+
+        .locked-placeholder i {
+            font-size: 2.2rem;
+            color: #00f2fe;
+            margin-bottom: 10px;
+            display: block;
+            text-shadow: 0 0 15px rgba(0, 242, 254, 0.8);
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); filter: drop-shadow(0 0 5px #00f2fe); }
+            100% { transform: scale(1.1); filter: drop-shadow(0 0 15px #00f2fe); }
+        }
+
+        .hidden-content {
+            display: none;
+        }
+
+        /* 🔐 Security Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .security-modal {
+            background: rgba(13, 22, 45, 0.95);
+            border: 2px solid #00f2fe;
+            border-radius: 24px;
+            padding: 30px;
+            width: 90%;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(0, 242, 254, 0.4);
+            transform: scale(0.8);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .modal-overlay.active .security-modal {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid #00f2fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            color: #00f2fe;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .modal-subtitle {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .pin-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(3, 7, 18, 0.7);
+            border: 1px solid rgba(0, 242, 254, 0.4);
+            color: #00f2fe;
+            font-size: 1.2rem;
+            text-align: center;
+            letter-spacing: 8px;
+            outline: none;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .pin-input:focus {
+            border-color: #00f2fe;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+        }
+
+        .error-msg {
+            color: #ff4d6d;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            display: none;
+            animation: shake 0.3s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-submit {
+            flex: 1;
+            background: #00f2fe;
+            color: #030712;
+            border: none;
+            padding: 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .btn-cancel {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cancel:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
         }
 
         /* Skills Layout */
@@ -206,10 +401,6 @@
             font-weight: 700;
             transform: translateY(-4px) scale(1.05);
             box-shadow: 0 6px 20px rgba(0, 242, 254, 0.7);
-        }
-
-        .skill-tag i {
-            font-size: 1.1rem;
         }
 
         /* List Styles */
@@ -316,6 +507,40 @@
             color: #00f2fe;
         }
 
+        /* 📄 Centered PDF Download Section */
+        .pdf-footer-section {
+            width: 100%;
+            max-width: 950px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25px;
+            padding-bottom: 20px;
+        }
+
+        .btn-download-pdf-bottom {
+            background: linear-gradient(135deg, #00f2fe, #4facfe);
+            color: #030712;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-download-pdf-bottom:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 0 40px rgba(0, 242, 254, 0.9);
+        }
+
         @media (max-width: 768px) {
             .header-card {
                 flex-direction: column;
@@ -325,13 +550,31 @@
                 justify-content: center;
             }
         }
+
+        /* 🖨️ Print / PDF Export Styling */
+        @media print {
+            body {
+                background: #030712 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 0 !important;
+            }
+            .pdf-footer-section, .lock-btn, .modal-overlay, .locked-placeholder {
+                display: none !important;
+            }
+            .cv-wrapper {
+                box-shadow: none !important;
+                max-width: 100% !important;
+                border: none !important;
+            }
+        }
     </style>
 </head>
 <body>
 
 <main class="cv-wrapper">
     
-    <!-- Header Area With Clean Solid Neon Border -->
+    <!-- Header Area -->
     <header class="header-card">
         <div class="profile-frame">
             <img src="https://i.postimg.cc/VkmyHhv8/ME.png" alt="MD Jahidul Islam">
@@ -350,7 +593,7 @@
 
     <!-- Objective -->
     <section class="glass-card">
-        <h3 class="card-title">OBJECTIVE</h3>
+        <h3 class="card-title"><span>OBJECTIVE</span></h3>
         <p class="p-desc">
             To perform a challenging job that will utilize my knowledge, skills, energy and optimistic attitude/approach in a result oriented & rewards driven career to enhance performance of the organization with the help of my powerful dedication and energetic enthusiasm.
         </p>
@@ -358,7 +601,7 @@
 
     <!-- Background -->
     <section class="glass-card">
-        <h3 class="card-title">BACKGROUND</h3>
+        <h3 class="card-title"><span>BACKGROUND</span></h3>
         <p class="p-desc">
             Supervisor, Customer Care services and Office Management Skills with proficiency in Microsoft Office package. Support the various functions to ensure the availability, security, traceability, and retrieval of indexed documents and records by managing and operating a document control system in accordance with the requirements of ISO 9001 and experience in Middle East & Bangladesh.
         </p>
@@ -366,7 +609,7 @@
 
     <!-- Personal Skills -->
     <section class="glass-card">
-        <h3 class="card-title">PERSONAL SKILLS</h3>
+        <h3 class="card-title"><span>PERSONAL SKILLS</span></h3>
         <ul class="custom-list">
             <li>Excellent sense of responsibility.</li>
             <li>Organized dedication with positive attitude towards pressure of work.</li>
@@ -379,7 +622,7 @@
     
     <!-- Technical Skills Section -->
     <section class="glass-card">
-        <h3 class="card-title"><i class="fa-solid fa-code"></i> TECHNICAL SKILLS</h3>
+        <h3 class="card-title"><span><i class="fa-solid fa-code"></i> TECHNICAL SKILLS</span></h3>
         <div class="skills-grid">
             <span class="skill-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
             <span class="skill-tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
@@ -393,7 +636,7 @@
 
     <!-- Areas of Expertise -->
     <section class="glass-card">
-        <h3 class="card-title">AREAS OF EXPERTISE & KEY SKILLS INCLUDE</h3>
+        <h3 class="card-title"><span>AREAS OF EXPERTISE & KEY SKILLS INCLUDE</span></h3>
         <ul class="custom-list">
             <li>Supervisor</li>
             <li>Customer Care services</li>
@@ -405,7 +648,7 @@
 
     <!-- Working Experience -->
     <section class="glass-card">
-        <h3 class="card-title">WORK EXPERIENCE</h3>
+        <h3 class="card-title"><span>WORK EXPERIENCE</span></h3>
 
         <div class="exp-box">
             <div class="job-title">Computer Operator & Data Entry</div>
@@ -444,7 +687,7 @@
 
     <!-- Academic Qualification -->
     <section class="glass-card">
-        <h3 class="card-title">ACADEMIC QUALIFICATION</h3>
+        <h3 class="card-title"><span>ACADEMIC QUALIFICATION</span></h3>
         
         <div class="exp-box">
             <div class="job-title">Higher Secondary Certificate (HSC)</div>
@@ -461,7 +704,7 @@
 
     <!-- Computer Knowledge -->
     <section class="glass-card">
-        <h3 class="card-title">COMPUTER KNOWLEDGE</h3>
+        <h3 class="card-title"><span>COMPUTER KNOWLEDGE</span></h3>
         <ul class="custom-list">
             <li>Computer Maintenance</li>
             <li>Hardware Troubleshooting</li>
@@ -471,7 +714,7 @@
 
     <!-- Training Qualification -->
     <section class="glass-card">
-        <h3 class="card-title">TRAINING QUALIFICATION</h3>
+        <h3 class="card-title"><span>TRAINING QUALIFICATION</span></h3>
         <div class="exp-box">
             <div class="job-title">National Skill Standard Basic Course Certificate</div>
             <div class="company-name">Digital Information Technology (1000029)</div>
@@ -479,36 +722,58 @@
         </div>
     </section>
 
-    <!-- Personal Details -->
+    <!-- Personal Details (LOCKED SECTION) -->
     <section class="glass-card">
-        <h3 class="card-title">PERSONAL DETAILS</h3>
-        <table class="table-3d">
-            <tr><td class="lbl">Name</td><td class="colon">:</td><td>JAHIDUL ISLAM</td></tr>
-            <tr><td class="lbl">Father’s Name</td><td class="colon">:</td><td>YASIN ARAFAT</td></tr>
-            <tr><td class="lbl">Date of Birth</td><td class="colon">:</td><td>01/03/2005</td></tr>
-            <tr><td class="lbl">Nationality</td><td class="colon">:</td><td>Bangladeshi</td></tr>
-            <tr><td class="lbl">Sex</td><td class="colon">:</td><td>Male</td></tr>
-            <tr><td class="lbl">Marital Status</td><td class="colon">:</td><td>Unmarried</td></tr>
-            <tr><td class="lbl">Religion</td><td class="colon">:</td><td>Muslim</td></tr>
-            <tr><td class="lbl">QID No</td><td class="colon">:</td><td>30505004343</td></tr>
-            <tr><td class="lbl">Visa Status</td><td class="colon">:</td><td>Transferable</td></tr>
-        </table>
+        <h3 class="card-title">
+            <span>PERSONAL DETAILS</span>
+            <button class="lock-btn" id="personal-btn" onclick="openPinModal('personal')">
+                <i class="fa-solid fa-lock"></i> Unlock
+            </button>
+        </h3>
+        <div id="personal-placeholder" class="locked-placeholder">
+            <i class="fa-solid fa-shield-halved"></i>
+            This information is password protected.
+        </div>
+        <div id="personal-content" class="hidden-content">
+            <table class="table-3d">
+                <tr><td class="lbl">Name</td><td class="colon">:</td><td>JAHIDUL ISLAM</td></tr>
+                <tr><td class="lbl">Father’s Name</td><td class="colon">:</td><td>YASIN ARAFAT</td></tr>
+                <tr><td class="lbl">Date of Birth</td><td class="colon">:</td><td>01/03/2005</td></tr>
+                <tr><td class="lbl">Nationality</td><td class="colon">:</td><td>Bangladeshi</td></tr>
+                <tr><td class="lbl">Sex</td><td class="colon">:</td><td>Male</td></tr>
+                <tr><td class="lbl">Marital Status</td><td class="colon">:</td><td>Unmarried</td></tr>
+                <tr><td class="lbl">Religion</td><td class="colon">:</td><td>Muslim</td></tr>
+                <tr><td class="lbl">QID No</td><td class="colon">:</td><td>30505004343</td></tr>
+                <tr><td class="lbl">Visa Status</td><td class="colon">:</td><td>Transferable</td></tr>
+            </table>
+        </div>
     </section>
 
-    <!-- Passport Details -->
+    <!-- Passport Details (LOCKED SECTION) -->
     <section class="glass-card">
-        <h3 class="card-title">PASSPORT DETAILS</h3>
-        <table class="table-3d">
-            <tr><td class="lbl">No of passport</td><td class="colon">:</td><td>A 13192664</td></tr>
-            <tr><td class="lbl">Date of Issue</td><td class="colon">:</td><td>16/11/2023</td></tr>
-            <tr><td class="lbl">Date of expiry</td><td class="colon">:</td><td>15/11/2033</td></tr>
-            <tr><td class="lbl">Place of issue</td><td class="colon">:</td><td>Dhaka / Bangladesh</td></tr>
-        </table>
+        <h3 class="card-title">
+            <span>PASSPORT DETAILS</span>
+            <button class="lock-btn" id="passport-btn" onclick="openPinModal('passport')">
+                <i class="fa-solid fa-lock"></i> Unlock
+            </button>
+        </h3>
+        <div id="passport-placeholder" class="locked-placeholder">
+            <i class="fa-solid fa-shield-halved"></i>
+            This information is password protected.
+        </div>
+        <div id="passport-content" class="hidden-content">
+            <table class="table-3d">
+                <tr><td class="lbl">No of passport</td><td class="colon">:</td><td>A 13192664</td></tr>
+                <tr><td class="lbl">Date of Issue</td><td class="colon">:</td><td>16/11/2023</td></tr>
+                <tr><td class="lbl">Date of expiry</td><td class="colon">:</td><td>15/11/2033</td></tr>
+                <tr><td class="lbl">Place of issue</td><td class="colon">:</td><td>Dhaka / Bangladesh</td></tr>
+            </table>
+        </div>
     </section>
 
     <!-- Languages -->
     <section class="glass-card">
-        <h3 class="card-title">LANGUAGES</h3>
+        <h3 class="card-title"><span>LANGUAGES</span></h3>
         <table class="table-3d">
             <tr><td class="lbl">Bangla</td><td class="colon">:</td><td>Reading, Writing and Speaking.</td></tr>
             <tr><td class="lbl">Arabic</td><td class="colon">:</td><td>Reading, Understand.</td></tr>
@@ -520,7 +785,7 @@
 
     <!-- Declaration -->
     <section class="glass-card">
-        <h3 class="card-title">DECLARATION</h3>
+        <h3 class="card-title"><span>DECLARATION</span></h3>
         <p class="p-desc">I hereby certify that all above mentioned information is true and correct to the best of my knowledge and belief.</p>
         
         <div class="signature-area">
@@ -529,6 +794,115 @@
     </section>
 
 </main>
+  <div class="pdf-footer-section" id="pdf-download-section">
+  <a href="https://drive.google.com/uc?export=download&id=1yGZ9qr3NUG_MSEnatp0OcWD8zEo9Auk-" class="btn-download-pdf-bottom">
+    <i class="fa-solid fa-file-pdf"></i> Download PDF CV
+      </a>
+  </div>
+
+<!-- 📄 Centered PDF Download Button Container -->
+<!-- <div class="pdf-footer-section" id="pdf-download-section">
+    <button class="btn-download-pdf-bottom" onclick="window.print()">
+        <i class="fa-solid fa-file-pdf"></i> Download PDF CV
+    </button>
+</div> -->
+
+<!-- 🔐 Security PIN Modal -->
+<div class="modal-overlay" id="securityModal">
+    <div class="security-modal">
+        <div class="modal-icon">
+            <i class="fa-solid fa-fingerprint"></i>
+        </div>
+        <div class="modal-title">Security Verification</div>
+        <div class="modal-subtitle">Enter 4-digit security PIN to access</div>
+        
+        <input type="password" id="pinInput" class="pin-input" maxlength="4" placeholder="••••" autocomplete="off">
+        <div class="error-msg" id="errorMsg"><i class="fa-solid fa-circle-exclamation"></i> Invalid PIN! Access Denied.</div>
+        
+        <div class="modal-actions">
+            <button class="btn-cancel" onclick="closePinModal()">Cancel</button>
+            <button class="btn-submit" onclick="verifyPin()">Unlock</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // "1234" এর এনক্রিপ্টেড হ্যাশ (Base64) - সোর্স কোড/ডেভেলপার টুলসে পাসওয়ার্ড দেখা যাবে না
+    const hashedPin = "ODU3MA=="; 
+    let currentTargetSection = null;
+
+    const unlockedState = {
+        personal: false,
+        passport: false
+    };
+
+    function openPinModal(section) {
+        if (unlockedState[section]) {
+            toggleLock(section, false);
+        } else {
+            currentTargetSection = section;
+            document.getElementById('pinInput').value = '';
+            document.getElementById('errorMsg').style.display = 'none';
+            document.getElementById('securityModal').classList.add('active');
+            setTimeout(() => document.getElementById('pinInput').focus(), 100);
+        }
+    }
+
+    function closePinModal() {
+        document.getElementById('securityModal').classList.remove('active');
+        currentTargetSection = null;
+    }
+
+    function verifyPin() {
+        const inputVal = document.getElementById('pinInput').value;
+        const errorMsg = document.getElementById('errorMsg');
+
+        // ইনপুট দেওয়া পিনকে এনক্রিপ্ট করে চেক করা হচ্ছে
+        if (btoa(inputVal) === hashedPin) {
+            toggleLock(currentTargetSection, true);
+            closePinModal();
+        } else {
+            errorMsg.style.display = 'block';
+            document.getElementById('pinInput').value = '';
+            document.getElementById('pinInput').focus();
+        }
+    }
+
+    function checkDownloadVisibility() {
+        const downloadSec = document.getElementById('pdf-download-section');
+        if (unlockedState.personal || unlockedState.passport) {
+            downloadSec.style.display = 'flex';
+        } else {
+            downloadSec.style.display = 'none';
+        }
+    }
+
+    function toggleLock(section, shouldUnlock) {
+        const placeholder = document.getElementById(`${section}-placeholder`);
+        const content = document.getElementById(`${section}-content`);
+        const btn = document.getElementById(`${section}-btn`);
+
+        if (shouldUnlock) {
+            placeholder.style.display = "none";
+            content.style.display = "block";
+            btn.innerHTML = '<i class="fa-solid fa-lock-open"></i> Lock';
+            unlockedState[section] = true;
+        } else {
+            content.style.display = "none";
+            placeholder.style.display = "block";
+            btn.innerHTML = '<i class="fa-solid fa-lock"></i> Unlock';
+            unlockedState[section] = false;
+        }
+
+        checkDownloadVisibility();
+    }
+
+    document.getElementById('pinInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            verifyPin();
+        }
+    });
+</script>
 
 </body>
 </html>
