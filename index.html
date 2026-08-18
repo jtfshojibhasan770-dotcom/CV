@@ -1,579 +1,871 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal CV</title>
-    
-    <!-- Google Fonts import -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons Import -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY PERSONAL CV </title>
+  
+  <!-- Google Fonts import -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons Import -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(-45deg, #030712, #0d1527, #001220, #090014);
-            background-size: 400% 400%;
-            animation: bgGradient 12s ease infinite;
-            color: #f8fafc;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 12px;
-            overflow-x: hidden;
-        }
+    body {
+      background: linear-gradient(-45deg, #030712, #0d1527, #001220, #090014);
+      background-size: 400% 400%;
+      animation: bgGradient 12s ease infinite;
+      color: #f8fafc;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      padding: 30px 12px;
+    }
 
-        @keyframes bgGradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    @keyframes bgGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        /* 🧊 CV Container */
-        .cv-wrapper {
-            padding: 35px;
-            width: 100%;
-            max-width: 950px;
-            background: rgba(10, 15, 30, 0.75);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border-radius: 30px;
-            box-shadow: 0 0 60px rgba(0, 242, 254, 0.25),
-                        0 25px 50px rgba(0, 0, 0, 0.9);
-            border: 1px solid rgba(0, 242, 254, 0.3);
-        }
+    /* 🕷️ 1. ARACHNE CLOCK STYLES */
+    .clock-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-        /* 🖼️ Header Card */
-        .header-card {
-            position: relative;
-            border-radius: 20px;
-            padding: 28px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            background: #070c18;
-            border: 2px solid #00f2fe;
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4),
-                        inset 0 0 15px rgba(0, 242, 254, 0.1);
-        }
+    .arachne-clock-container {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #0e1118 0%, #030508 100%);
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      box-shadow: 0 0 35px rgba(0, 242, 254, 0.2), inset 0 0 20px rgba(0,0,0,0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
 
-        .profile-frame {
-            width: 150px;
-            height: 170px;
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
-            flex-shrink: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 2px solid #00f2fe;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
-        }
+    .arachne-clock-container:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 50px rgba(0, 242, 254, 0.5);
+    }
 
-        .profile-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 14px;
-            background: #0f172a;
-        }
+    .clock-brand {
+      position: absolute;
+      top: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #00f2fe;
+      pointer-events: none;
+    }
 
-        .header-right {
-            flex-grow: 1;
-            position: relative;
-            z-index: 2;
-        }
+    .clock-subbrand {
+      position: absolute;
+      top: 36px;
+      font-size: 5px;
+      letter-spacing: 1px;
+      color: #38bdf8;
+      pointer-events: none;
+    }
 
-        .main-title {
-            font-size: 13pt;
-            letter-spacing: 4px;
-            color: #00f2fe;
-            margin: 0;
-            font-weight: 600;
-            text-shadow: 0 0 15px rgba(0, 242, 254, 0.7);
-        }
+    .spider-web {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: 
+        radial-gradient(circle, transparent 30%, rgba(0, 242, 254, 0.05) 31%, transparent 32%),
+        radial-gradient(circle, transparent 60%, rgba(0, 242, 254, 0.05) 61%, transparent 62%);
+      pointer-events: none;
+    }
 
-        .name-title {
-            font-family: 'Times New Roman', Georgia, serif;
-            font-size: 28pt;
-            font-weight: bold;
-            margin: 6px 0 16px 0;
-            color: #ffffff;
-            letter-spacing: 1.5px;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-        }
+    .clock-dial {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin-top: 15px;
+      pointer-events: none;
+    }
 
-        .contact-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            font-size: 9pt;
-        }
+    .number {
+      position: absolute;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      font-weight: 600;
+      color: #00f2fe;
+      transform: translate(-50%, -50%);
+    }
 
-        .contact-pill {
-            background: rgba(0, 242, 254, 0.08);
-            border: 1px solid rgba(0, 242, 254, 0.4);
-            padding: 9px 18px;
-            border-radius: 30px;
-            color: #e2e8f0;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
+    .num-12 { top: 6%; left: 50%; }
+    .num-1  { top: 12%; left: 74%; }
+    .num-2  { top: 26%; left: 88%; }
+    .num-3  { top: 50%; left: 94%; }
+    .num-4  { top: 74%; left: 88%; }
+    .num-5  { top: 88%; left: 74%; }
+    .num-6  { top: 94%; left: 50%; }
+    .num-7  { top: 88%; left: 26%; }
+    .num-8  { top: 74%; left: 12%; }
+    .num-9  { top: 50%; left: 6%; }
+    .num-10 { top: 26%; left: 12%; }
+    .num-11 { top: 12%; left: 26%; }
 
-        .contact-pill:hover {
-            border-color: #00f2fe;
-            color: #030712;
-            background: #00f2fe;
-            font-weight: 600;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.8);
-            transform: translateY(-3px);
-        }
+    .hand {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform-origin: bottom center;
+      background: #00f2fe;
+      border-radius: 4px;
+    }
 
-        /* 💎 Glass Cards */
-        .glass-card {
-            background: rgba(13, 22, 45, 0.65);
-            border: 1px solid rgba(0, 242, 254, 0.2);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 22px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
+    .hour-hand { width: 2.5px; height: 38px; }
+    .minute-hand { width: 1.8px; height: 55px; }
+    .second-hand { width: 1px; height: 65px; background: #ff4d6d; }
 
-        .glass-card:hover {
-            border-color: rgba(0, 242, 254, 0.8);
-            background: rgba(13, 22, 45, 0.85);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 
-                        0 0 30px rgba(0, 242, 254, 0.3);
-            transform: translateY(-5px);
-        }
+    .center-cap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      background: #00f2fe;
+      border: 2px solid #000;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-        .card-title {
-            font-family: 'Times New Roman', Georgia, serif;
-            font-size: 14pt;
-            font-weight: bold;
-            color: #00f2fe;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 0;
-            margin-bottom: 18px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(0, 242, 254, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-shadow: 0 0 12px rgba(0, 242, 254, 0.6);
-        }
+    .digital-time {
+      position: absolute;
+      bottom: 22px;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      color: #00f2fe;
+      pointer-events: none;
+    }
 
-        /* 🔒 Lock Button & Placeholder */
-        .lock-btn {
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(0, 242, 254, 0.25));
-            border: 1px solid #00f2fe;
-            color: #00f2fe;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 8.5pt;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: 'Poppins', sans-serif;
-            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
-        }
+    .click-hint {
+      position: absolute;
+      bottom: 8px;
+      font-size: 8px;
+      color: #38bdf8;
+      font-weight: 600;
+      pointer-events: none;
+    }
 
-        .lock-btn:hover {
-            background: #00f2fe;
-            color: #030712;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.9);
-            transform: scale(1.05);
-        }
+    /* 💡 2. MODAL & ANIMATED LAMP LOGIN */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(3, 5, 8, 0.95);
+      backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      display: none;
+      padding: 15px;
+      overflow-y: auto;
+    }
 
-        .locked-placeholder {
-            text-align: center;
-            padding: 25px 0;
-            color: #94a3b8;
-            font-size: 9.5pt;
-            letter-spacing: 0.5px;
-            background: rgba(0, 242, 254, 0.02);
-            border-radius: 14px;
-            border: 1px dashed rgba(0, 242, 254, 0.2);
-        }
+    .modal-overlay.show {
+      display: flex;
+    }
 
-        .locked-placeholder i {
-            font-size: 2.2rem;
-            color: #00f2fe;
-            margin-bottom: 10px;
-            display: block;
-            text-shadow: 0 0 15px rgba(0, 242, 254, 0.8);
-            animation: pulseGlow 2s infinite alternate;
-        }
+    .bamboo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      max-width: 100%;
+    }
 
-        @keyframes pulseGlow {
-            0% { transform: scale(1); filter: drop-shadow(0 0 5px #00f2fe); }
-            100% { transform: scale(1.1); filter: drop-shadow(0 0 15px #00f2fe); }
-        }
+    .lamp-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
 
-        .hidden-content {
-            display: none;
-        }
+    .lamp-shade {
+      width: 80px;
+      height: 50px;
+      background: #8f9091c0;
+      clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+      border-radius: 4px;
+      transition: all 0.4s ease;
+      filter: drop-shadow(0 0 2px rgba(0, 242, 254, 0.2));
+    }
 
-        /* 🔐 Security Modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(3, 7, 18, 0.85);
-            backdrop-filter: blur(12px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
+    .lamp-cord-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.15s ease-in-out;
+    }
 
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
+    .cord-line {
+      width: 2px;
+      height: 45px;
+      background: #8b949e;
+    }
 
-        .security-modal {
-            background: rgba(13, 22, 45, 0.95);
-            border: 2px solid #00f2fe;
-            border-radius: 24px;
-            padding: 30px;
-            width: 90%;
-            max-width: 380px;
-            text-align: center;
-            box-shadow: 0 0 40px rgba(0, 242, 254, 0.4);
-            transform: scale(0.8);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
+    .cord-handle {
+      width: 12px;
+      height: 12px;
+      background: #00f2fe;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #00f2fe;
+    }
 
-        .modal-overlay.active .security-modal {
-            transform: scale(1);
-        }
+    .pull-hint {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color:  #00f2fe;
+      margin-top: 8px;
+    }
 
-        .modal-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(0, 242, 254, 0.1);
-            border: 1px solid #00f2fe;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 1.5rem;
-            color: #00f2fe;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
-        }
+    .lamp-wrapper.active .lamp-shade {
+      background: #ffe2bee0;
+      box-shadow: 0 0 40px #f0c990;
+      animation: dimPulse 2s infinite alternate ease-in-out;
+    }
 
-        .modal-title {
-            font-size: 1.2rem;
-            color: #fff;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
+    @keyframes dimPulse {
+      0% { filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.6)); }
+      100% { filter: drop-shadow(0 0 35px rgba(0, 242, 254, 1)); }
+    }
 
-        .modal-subtitle {
-            font-size: 0.85rem;
-            color: #94a3b8;
-            margin-bottom: 20px;
-        }
+    .login-card {
+      background: #070c18;
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-radius: 16px;
+      padding: 22px;
+      width: 290px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+      opacity: 0;
+      transform: scale(0.85);
+      pointer-events: none;
+      transition: all 0.4s ease;
+    }
 
-        .pin-input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 12px;
-            background: rgba(3, 7, 18, 0.7);
-            border: 1px solid rgba(0, 242, 254, 0.4);
-            color: #00f2fe;
-            font-size: 1.2rem;
-            text-align: center;
-            letter-spacing: 8px;
-            outline: none;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
+    .login-card.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
 
-        .pin-input:focus {
-            border-color: #00f2fe;
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
-        }
+    .close-modal {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      color: #8b949e;
+      cursor: pointer;
+    }
 
-        .error-msg {
-            color: #ff4d6d;
-            font-size: 0.8rem;
-            margin-bottom: 15px;
-            display: none;
-            animation: shake 0.3s ease;
-        }
+    .panda-face {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 10px auto;
+    }
 
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-5px); }
-            40%, 80% { transform: translateX(5px); }
-        }
+    .login-card h3 {
+      font-size: 17px;
+      color: hsl(172, 89%, 65%);
+    }
 
-        .modal-actions {
-            display: flex;
-            gap: 10px;
-        }
+    .login-card p.sub {
+      font-size: 11px;
+      color: #7be8f0;
+      margin-bottom: 14px;
+    }
 
-        .btn-submit {
-            flex: 1;
-            background: #00f2fe;
-            color: #030712;
-            border: none;
-            padding: 10px;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    .input-box {
+      text-align: left;
+      margin-bottom: 10px;
+      position: relative;
+    }
 
-        .btn-submit:hover {
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.8);
-            transform: translateY(-2px);
-        }
+    .input-box label {
+      display: block;
+      font-size: 10px;
+      color: #8b949e;
+      margin-bottom: 3px;
+    }
 
-        .btn-cancel {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            color: #94a3b8;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 12px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    .input-box input {
+      width: 100%;
+      padding: 8px 32px 8px 10px;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 12px;
+      outline: none;
+    }
 
-        .btn-cancel:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-        }
+    /* 👁️ CENTERED EYE ICON FIX */
+    .toggle-eye {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      color: #8b949e;
+      cursor: pointer;
+      font-size: 12px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        /* Skills Layout */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+    .btn-signin {
+      width: 100%;
+      padding: 9px;
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      border: none;
+      border-radius: 8px;
+      color: #030712;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 5px;
+    }
 
-        .skill-tag {
-            background: rgba(0, 242, 254, 0.08);
-            color: #38bdf8;
-            border: 1px solid rgba(0, 242, 254, 0.4);
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    .error-msg {
+      color: #ff4d6d;
+      font-size: 10px;
+      margin-top: 8px;
+      display: none;
+    }
 
-        .skill-tag:hover {
-            background: linear-gradient(135deg, #00f2fe, #4facfe);
-            color: #030712;
-            font-weight: 700;
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.7);
-        }
+    /* 🧊 3. CV WRAPPER STYLES */
+    .cv-wrapper {
+      display: none;
+      padding: 35px;
+      width: 100%;
+      max-width: 950px;
+      background: rgba(10, 15, 30, 0.75);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border-radius: 30px;
+      box-shadow: 0 0 60px rgba(0, 242, 254, 0.25),
+                  0 25px 50px rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      animation: fadeIn 0.6s ease forwards;
+    }
 
-        /* List Styles */
-        .custom-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: 9.5pt;
-        }
+    .cv-wrapper.show {
+      display: block;
+    }
 
-        .custom-list li {
-            position: relative;
-            padding-left: 22px;
-            margin-bottom: 12px;
-            color: #e2e8f0;
-            line-height: 1.6;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .custom-list li::before {
-            content: "♦";
-            position: absolute;
-            left: 0;
-            color: #00f2fe;
-            font-size: 9pt;
-            text-shadow: 0 0 8px #00f2fe;
-        }
+    /* 🖼️ Header Card */
+    .header-card {
+      position: relative;
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      background: #070c18;
+      border: 2px solid #00f2fe;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.4),
+                  inset 0 0 15px rgba(0, 242, 254, 0.1);
+    }
 
-        .p-desc {
-            font-size: 9.5pt;
-            line-height: 1.6;
-            color: #cbd5e1;
-            margin: 0;
-        }
+    .profile-frame {
+      width: 150px;
+      height: 170px;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #00f2fe;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+    }
 
-        /* Experience Boxes */
-        .exp-box {
-            background: rgba(255, 255, 255, 0.02);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 14px 0;
-            margin-bottom: 14px;
-        }
+    .profile-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      background: #0f172a;
+    }
 
-        .exp-box:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
+    .header-right {
+      flex-grow: 1;
+      position: relative;
+      z-index: 2;
+    }
 
-        .job-title {
-            font-family: 'Times New Roman', Georgia, serif;
-            font-size: 13.5pt;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 4px;
-        }
+    .main-title {
+      font-size: 13pt;
+      letter-spacing: 4px;
+      color: #00f2fe;
+      margin: 0;
+      font-weight: 600;
+      text-shadow: 0 0 15px rgba(0, 242, 254, 0.7);
+    }
 
-        .company-name {
-            font-size: 9.5pt;
-            color: #38bdf8;
-            margin-bottom: 8px;
-        }
+    .name-title {
+      font-family: 'Times New Roman', Georgia, serif;
+      font-size: 28pt;
+      font-weight: bold;
+      margin: 6px 0 16px 0;
+      color: #ffffff;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    }
 
-        .duration-badge {
-            display: inline-block;
-            font-size: 8.5pt;
-            color: #ff4d6d;
-            background: rgba(80, 10, 25, 0.6);
-            border: 1px solid #b91c1c;
-            padding: 4px 14px;
-            border-radius: 8px;
-            font-weight: 500;
-        }
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 9pt;
+    }
 
-        /* Tables */
-        .table-3d {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 9pt;
-        }
+    .contact-pill {
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      padding: 9px 18px;
+      border-radius: 30px;
+      color: #e2e8f0;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
 
-        .table-3d td {
-            padding: 9px 0;
-            color: #cbd5e1;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
-        }
+    .contact-pill:hover {
+      border-color: #00f2fe;
+      color: #030712;
+      background: #00f2fe;
+      font-weight: 600;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.8);
+      transform: translateY(-3px);
+    }
 
-        .table-3d td.lbl {
-            font-weight: 600;
-            color: #00f2fe;
-            width: 30%;
-        }
+    /* 💎 Glass Cards */
+    .glass-card {
+      background: rgba(13, 22, 45, 0.65);
+      border: 1px solid rgba(0, 242, 254, 0.2);
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 22px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+    }
 
-        .table-3d td.colon {
-            width: 5%;
-            color: #00f2fe;
-        }
+    .glass-card:hover {
+      border-color: rgba(0, 242, 254, 0.8);
+      background: rgba(13, 22, 45, 0.85);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 
+                  0 0 30px rgba(0, 242, 254, 0.3);
+      transform: translateY(-5px);
+    }
 
-        /* Signature */
-        .signature-area {
-            margin-top: 35px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 9.5pt;
-            font-weight: bold;
-            color: #00f2fe;
-        }
+    .card-title {
+      font-family: 'Times New Roman', Georgia, serif;
+      font-size: 14pt;
+      font-weight: bold;
+      color: #00f2fe;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 0;
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(0, 242, 254, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-shadow: 0 0 12px rgba(0, 242, 254, 0.6);
+    }
 
-        /* 📄 Centered PDF Download Section */
-        .pdf-footer-section {
-            width: 100%;
-            max-width: 950px;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            margin-top: 25px;
-            padding-bottom: 20px;
-        }
+    /* Skills Layout */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-        .btn-download-pdf-bottom {
-            background: linear-gradient(135deg, #00f2fe, #4facfe);
-            color: #030712;
-            border: none;
-            padding: 14px 32px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1.05rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            font-family: 'Poppins', sans-serif;
-            box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
-            letter-spacing: 0.5px;
-        }
+    .skill-tag {
+      background: rgba(0, 242, 254, 0.08);
+      color: #38bdf8;
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-        .btn-download-pdf-bottom:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 0 40px rgba(0, 242, 254, 0.9);
-        }
+    .skill-tag:hover {
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      color: #030712;
+      font-weight: 700;
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 242, 254, 0.7);
+    }
 
-        @media (max-width: 768px) {
-            .header-card {
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-grid {
-                justify-content: center;
-            }
-        }
+    /* List Styles */
+    .custom-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 9.5pt;
+    }
 
-        /* 🖨️ Print / PDF Export Styling */
-        @media print {
-            body {
-                background: #030712 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                padding: 0 !important;
-            }
-            .pdf-footer-section, .lock-btn, .modal-overlay, .locked-placeholder {
-                display: none !important;
-            }
-            .cv-wrapper {
-                box-shadow: none !important;
-                max-width: 100% !important;
-                border: none !important;
-            }
-        }
-    </style>
+    .custom-list li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 12px;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    .custom-list li::before {
+      content: "♦";
+      position: absolute;
+      left: 0;
+      color: #00f2fe;
+      font-size: 9pt;
+      text-shadow: 0 0 8px #00f2fe;
+    }
+
+    .p-desc {
+      font-size: 9.5pt;
+      line-height: 1.6;
+      color: #cbd5e1;
+      margin: 0;
+    }
+
+    /* Experience Boxes */
+    .exp-box {
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px 0;
+      margin-bottom: 14px;
+    }
+
+    .exp-box:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .job-title {
+      font-family: 'Times New Roman', Georgia, serif;
+      font-size: 13.5pt;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .company-name {
+      font-size: 9.5pt;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
+
+    .duration-badge {
+      display: inline-block;
+      font-size: 8.5pt;
+      color: #ff4d6d;
+      background: rgba(80, 10, 25, 0.6);
+      border: 1px solid #b91c1c;
+      padding: 4px 14px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    /* Tables */
+    .table-3d {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+    }
+
+    .table-3d td {
+      padding: 9px 0;
+      color: #cbd5e1;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .table-3d td.lbl {
+      font-weight: 600;
+      color: #00f2fe;
+      width: 30%;
+    }
+
+    .table-3d td.colon {
+      width: 5%;
+      color: #00f2fe;
+    }
+
+    /* Signature */
+    .signature-area {
+      margin-top: 35px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.5pt;
+      font-weight: bold;
+      color: #00f2fe;
+    }
+
+    /* 📄 Centered PDF Download Section */
+    .pdf-footer-section {
+      display: none;
+      width: 100%;
+      max-width: 950px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 25px;
+      padding-bottom: 20px;
+    }
+
+    .pdf-footer-section.show {
+      display: flex;
+    }
+
+    .btn-download-pdf-bottom {
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      color: #030712;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
+
+    .btn-download-pdf-bottom:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 0 40px rgba(0, 242, 254, 0.9);
+    }
+
+    /* 📱 MOBILE RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px 8px;
+      }
+
+      .bamboo-wrapper { 
+        flex-direction: column; 
+        gap: 15px; 
+      }
+
+      .cord-line {
+        height: 25px;
+      }
+
+      .login-card {
+        width: 100%;
+        max-width: 280px;
+        padding: 18px;
+      }
+
+      .cv-wrapper {
+        padding: 18px 12px;
+        border-radius: 20px;
+      }
+
+      .header-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+        gap: 15px;
+      }
+
+      .profile-frame {
+        width: 120px;
+        height: 140px;
+      }
+
+      .name-title {
+        font-size: 20pt;
+      }
+
+      .contact-grid {
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .contact-pill {
+        width: 100%;
+        text-align: center;
+        padding: 8px 12px;
+        font-size: 8.5pt;
+      }
+
+      .glass-card {
+        padding: 16px 14px;
+        border-radius: 16px;
+      }
+
+      .table-3d td.lbl {
+        width: 40%;
+      }
+
+      .skills-grid {
+        gap: 8px;
+      }
+
+      .skill-tag {
+        font-size: 0.8rem;
+        padding: 8px 14px;
+      }
+
+      .btn-download-pdf-bottom {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<main class="cv-wrapper">
-    
+  <!-- 🕷️ 1. ARACHNE CLOCK SECTION -->
+  <div class="clock-section" id="clockSection">
+    <div class="arachne-clock-container" id="clockBtn">
+      <div class="clock-brand">CLOCK</div>
+      <div class="clock-subbrand">MY DESIGN CLOCK </div>
+      <div class="spider-web"></div>
+
+      <div class="clock-dial">
+        <div class="number num-12">12</div>
+        <div class="number num-1">1</div>
+        <div class="number num-2">2</div>
+        <div class="number num-3">3</div>
+        <div class="number num-4">4</div>
+        <div class="number num-5">5</div>
+        <div class="number num-6">6</div>
+        <div class="number num-7">7</div>
+        <div class="number num-8">8</div>
+        <div class="number num-9">9</div>
+        <div class="number num-10">10</div>
+        <div class="number num-11">11</div>
+
+        <div class="hand hour-hand" id="hourHand"></div>
+        <div class="hand minute-hand" id="minHand"></div>
+        <div class="hand second-hand" id="secHand"></div>
+        <div class="center-cap"></div>
+      </div>
+
+      <div class="digital-time" id="digitalTime">00:00:00</div>
+      <div class="click-hint"><i class="fa-solid fa-lock"></i></div>
+    </div>
+  </div>
+
+  <!-- 💡 2. BAMBOO LOGIN MODAL -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="bamboo-wrapper">
+      
+      <!-- Pull Lamp -->
+      <div class="lamp-wrapper" id="lampWrapper">
+        <div class="lamp-shade"></div>
+        <div class="lamp-cord-container" id="pullCord">
+          <div class="cord-line"></div>
+          <div class="cord-handle"></div>
+        </div>
+        <span class="pull-hint" id="pullHint">PULL CORD TO LOGIN</span>
+      </div>
+
+      <!-- Panda Login Card -->
+      <div class="login-card" id="loginCard">
+        <i class="fa-solid fa-xmark close-modal" id="closeBtn"></i>
+        
+        <div class="panda-face">
+          <svg viewBox="0 0 100 100">
+            <circle cx="20" cy="20" r="14" fill="#0d1117" />
+            <circle cx="80" cy="20" r="14" fill="#0d1117" />
+            <circle cx="50" cy="50" r="40" fill="#ffffff" stroke="#0d1117" stroke-width="3" />
+            <ellipse cx="32" cy="48" rx="11" ry="14" fill="#0d1117" transform="rotate(-10 32 48)" />
+            <ellipse cx="68" cy="48" rx="11" ry="14" fill="#0d1117" transform="rotate(10 68 48)" />
+            
+            <g id="openEyes">
+              <circle id="leftPupil" cx="32" cy="48" r="4" fill="#ffffff" />
+              <circle id="rightPupil" cx="68" cy="48" r="4" fill="#ffffff" />
+            </g>
+
+            <g id="closedEyes" style="display: none;">
+              <path d="M 25 48 Q 32 54 39 48" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" />
+              <path d="M 61 48 Q 68 54 75 48" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" />
+            </g>
+
+            <ellipse cx="50" cy="60" rx="6" ry="4" fill="#0d1117" />
+            <path d="M 46 68 Q 50 72 54 68" stroke="#0d1117" stroke-width="2.5" fill="none" stroke-linecap="round" />
+          </svg>
+        </div>
+
+        <h3>MY PERSONAL CV  </h3>
+        <p class="sub">পাসওয়ার্ডের জন্য যোগাযোগ করুন। </p>
+
+        <div class="input-box">
+          <label>Username</label>
+          <input type="text" id="userInput" placeholder="Enter you username" autocomplete="off">
+        </div>
+
+        <div class="input-box">
+          <label>Password</label>
+          <input type="password" id="passInput" placeholder="Enter you password..">
+          <i class="fa-solid fa-eye toggle-eye" id="eyeIcon"></i>
+        </div>
+
+        <button class="btn-signin" id="loginBtn">LOGIN</button>
+        <div class="error-msg" id="errMsg">Incorrect credentials!</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🧊 3. UNLOCKED FULL CV SECTION -->
+  <main class="cv-wrapper" id="cvWrapper">
+      
     <!-- Header Area -->
     <header class="header-card">
         <div class="profile-frame">
@@ -712,63 +1004,31 @@
         </ul>
     </section>
 
-    <!-- Training Qualification -->
+    <!-- Personal Details -->
     <section class="glass-card">
-        <h3 class="card-title"><span>TRAINING QUALIFICATION</span></h3>
-        <div class="exp-box">
-            <div class="job-title">National Skill Standard Basic Course Certificate</div>
-            <div class="company-name">Digital Information Technology (1000029)</div>
-            <div style="font-size: 9pt; color: #cbd5e1;">Duration: 6 Months</div>
-        </div>
+        <h3 class="card-title"><span>PERSONAL DETAILS</span></h3>
+        <table class="table-3d">
+            <tr><td class="lbl">Name</td><td class="colon">:</td><td>JAHIDUL ISLAM</td></tr>
+            <tr><td class="lbl">Father’s Name</td><td class="colon">:</td><td>YASIN ARAFAT</td></tr>
+            <tr><td class="lbl">Date of Birth</td><td class="colon">:</td><td>01/03/2005</td></tr>
+            <tr><td class="lbl">Nationality</td><td class="colon">:</td><td>Bangladeshi</td></tr>
+            <tr><td class="lbl">Sex</td><td class="colon">:</td><td>Male</td></tr>
+            <tr><td class="lbl">Marital Status</td><td class="colon">:</td><td>Unmarried</td></tr>
+            <tr><td class="lbl">Religion</td><td class="colon">:</td><td>Muslim</td></tr>
+            <tr><td class="lbl">Qatar ID No</td><td class="colon">:</td><td>30505004343</td></tr>
+            <tr><td class="lbl">Visa Status</td><td class="colon">:</td><td>Transferable</td></tr>
+        </table>
     </section>
 
-    <!-- Personal Details (LOCKED SECTION) -->
+    <!-- Passport Details -->
     <section class="glass-card">
-        <h3 class="card-title">
-            <span>PERSONAL DETAILS</span>
-            <button class="lock-btn" id="personal-btn" onclick="openPinModal('personal')">
-                <i class="fa-solid fa-lock"></i> Unlock
-            </button>
-        </h3>
-        <div id="personal-placeholder" class="locked-placeholder">
-            <i class="fa-solid fa-shield-halved"></i>
-            This information is password protected.
-        </div>
-        <div id="personal-content" class="hidden-content">
-            <table class="table-3d">
-                <tr><td class="lbl">Name</td><td class="colon">:</td><td>JAHIDUL ISLAM</td></tr>
-                <tr><td class="lbl">Father’s Name</td><td class="colon">:</td><td>YASIN ARAFAT</td></tr>
-                <tr><td class="lbl">Date of Birth</td><td class="colon">:</td><td>01/03/2005</td></tr>
-                <tr><td class="lbl">Nationality</td><td class="colon">:</td><td>Bangladeshi</td></tr>
-                <tr><td class="lbl">Sex</td><td class="colon">:</td><td>Male</td></tr>
-                <tr><td class="lbl">Marital Status</td><td class="colon">:</td><td>Unmarried</td></tr>
-                <tr><td class="lbl">Religion</td><td class="colon">:</td><td>Muslim</td></tr>
-                <tr><td class="lbl">Qatar ID No</td><td class="colon">:</td><td>30505004343</td></tr>
-                <tr><td class="lbl">Visa Status</td><td class="colon">:</td><td>Transferable</td></tr>
-            </table>
-        </div>
-    </section>
-
-    <!-- Passport Details (LOCKED SECTION) -->
-    <section class="glass-card">
-        <h3 class="card-title">
-            <span>PASSPORT DETAILS</span>
-            <button class="lock-btn" id="passport-btn" onclick="openPinModal('passport')">
-                <i class="fa-solid fa-lock"></i> Unlock
-            </button>
-        </h3>
-        <div id="passport-placeholder" class="locked-placeholder">
-            <i class="fa-solid fa-shield-halved"></i>
-            This information is password protected.
-        </div>
-        <div id="passport-content" class="hidden-content">
-            <table class="table-3d">
-                <tr><td class="lbl">No of passport</td><td class="colon">:</td><td>A 13192664</td></tr>
-                <tr><td class="lbl">Date of Issue</td><td class="colon">:</td><td>16/11/2023</td></tr>
-                <tr><td class="lbl">Date of expiry</td><td class="colon">:</td><td>15/11/2033</td></tr>
-                <tr><td class="lbl">Place of issue</td><td class="colon">:</td><td>Dhaka / Bangladesh</td></tr>
-            </table>
-        </div>
+        <h3 class="card-title"><span>PASSPORT DETAILS</span></h3>
+        <table class="table-3d">
+            <tr><td class="lbl">No of passport</td><td class="colon">:</td><td>A 13192664</td></tr>
+            <tr><td class="lbl">Date of Issue</td><td class="colon">:</td><td>16/11/2023</td></tr>
+            <tr><td class="lbl">Date of expiry</td><td class="colon">:</td><td>15/11/2033</td></tr>
+            <tr><td class="lbl">Place of issue</td><td class="colon">:</td><td>Dhaka / Bangladesh</td></tr>
+        </table>
     </section>
 
     <!-- Languages -->
@@ -793,116 +1053,149 @@
         </div>
     </section>
 
-</main>
-  <div class="pdf-footer-section" id="pdf-download-section">
-  <a href="https://drive.google.com/uc?export=download&id=1dyP6BSSWOcElcKQdX-lzzjdD5x_gpl08" class="btn-download-pdf-bottom">
-    <i class="fa-solid fa-file-pdf"></i> Download PDF CV
+  </main>
+
+  <!-- 📄 Centered PDF Download Section -->
+  <div class="pdf-footer-section" id="pdfFooterSection">
+      <a href="https://drive.google.com/uc?export=download&id=1dyP6BSSWOcElcKQdX-lzzjdD5x_gpl08" class="btn-download-pdf-bottom">
+          <i class="fa-solid fa-file-pdf"></i> Download PDF CV
       </a>
   </div>
 
-<!-- 📄 Centered PDF Download Button Container -->
-<!-- <div class="pdf-footer-section" id="pdf-download-section">
-    <button class="btn-download-pdf-bottom" onclick="window.print()">
-        <i class="fa-solid fa-file-pdf"></i> Download PDF CV
-    </button>
-</div> -->
+  <script>
+    // 🕷️ 1. Clock Engine
+    function updateClock() {
+      const now = new Date();
+      const sec = now.getSeconds();
+      const min = now.getMinutes();
+      const hr = now.getHours();
 
-<!-- 🔐 Security PIN Modal -->
-<div class="modal-overlay" id="securityModal">
-    <div class="security-modal">
-        <div class="modal-icon">
-            <i class="fa-solid fa-fingerprint"></i>
-        </div>
-        <div class="modal-title">Security Verification</div>
-        <div class="modal-subtitle">Enter 4-digit security PIN to access</div>
-        
-        <input type="password" id="pinInput" class="pin-input" maxlength="4" placeholder="••••" autocomplete="off">
-        <div class="error-msg" id="errorMsg"><i class="fa-solid fa-circle-exclamation"></i> Invalid PIN! Access Denied.</div>
-        
-        <div class="modal-actions">
-            <button class="btn-cancel" onclick="closePinModal()">Cancel</button>
-            <button class="btn-submit" onclick="verifyPin()">Unlock</button>
-        </div>
-    </div>
-</div>
+      const secDeg = (sec / 60) * 360;
+      const minDeg = ((min + sec / 60) / 60) * 360;
+      const hrDeg = (((hr % 12) + min / 60) / 12) * 360;
 
-<script>
-    // "1234" এর এনক্রিপ্টেড হ্যাশ (Base64) - সোর্স কোড/ডেভেলপার টুলসে পাসওয়ার্ড দেখা যাবে না
-    const hashedPin = "ODU3MA=="; 
-    let currentTargetSection = null;
+      document.getElementById('secHand').style.transform = `rotate(${secDeg}deg)`;
+      document.getElementById('minHand').style.transform = `rotate(${minDeg}deg)`;
+      document.getElementById('hourHand').style.transform = `rotate(${hrDeg}deg)`;
 
-    const unlockedState = {
-        personal: false,
-        passport: false
+      document.getElementById('digitalTime').innerText = now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Elements
+    const clockBtn = document.getElementById('clockBtn');
+    const modal = document.getElementById('loginModal');
+    const closeBtn = document.getElementById('closeBtn');
+    const pullCord = document.getElementById('pullCord');
+    const lampWrapper = document.getElementById('lampWrapper');
+    const loginCard = document.getElementById('loginCard');
+    const pullHint = document.getElementById('pullHint');
+
+    const clockSection = document.getElementById('clockSection');
+    const cvWrapper = document.getElementById('cvWrapper');
+    const pdfFooterSection = document.getElementById('pdfFooterSection');
+
+    // Open Modal when Clock is clicked
+    clockBtn.onclick = function () {
+      modal.classList.add('show');
     };
 
-    function openPinModal(section) {
-        if (unlockedState[section]) {
-            toggleLock(section, false);
-        } else {
-            currentTargetSection = section;
-            document.getElementById('pinInput').value = '';
-            document.getElementById('errorMsg').style.display = 'none';
-            document.getElementById('securityModal').classList.add('active');
-            setTimeout(() => document.getElementById('pinInput').focus(), 100);
-        }
-    }
+    // Close Modal
+    closeBtn.onclick = function () {
+      modal.classList.remove('show');
+    };
 
-    function closePinModal() {
-        document.getElementById('securityModal').classList.remove('active');
-        currentTargetSection = null;
-    }
+    // Pull Cord Interaction
+    pullCord.onclick = function () {
+      pullCord.style.transform = 'translateY(10px)';
+      setTimeout(() => pullCord.style.transform = 'translateY(0)', 150);
 
-    function verifyPin() {
-        const inputVal = document.getElementById('pinInput').value;
-        const errorMsg = document.getElementById('errorMsg');
+      lampWrapper.classList.toggle('active');
+      loginCard.classList.toggle('active');
 
-        // ইনপুট দেওয়া পিনকে এনক্রিপ্ট করে চেক করা হচ্ছে
-        if (btoa(inputVal) === hashedPin) {
-            toggleLock(currentTargetSection, true);
-            closePinModal();
-        } else {
-            errorMsg.style.display = 'block';
-            document.getElementById('pinInput').value = '';
-            document.getElementById('pinInput').focus();
-        }
-    }
+      if (lampWrapper.classList.contains('active')) {
+        pullHint.innerText = 'PULL TO CLOSE';
+      } else {
+        pullHint.innerText = 'PULL TO LIGHT';
+      }
+    };
 
-    function checkDownloadVisibility() {
-        const downloadSec = document.getElementById('pdf-download-section');
-        if (unlockedState.personal || unlockedState.passport) {
-            downloadSec.style.display = 'flex';
-        } else {
-            downloadSec.style.display = 'none';
-        }
-    }
+    // Panda Eye & Input Logic
+    const userInput = document.getElementById('userInput');
+    const passInput = document.getElementById('passInput');
+    const openEyes = document.getElementById('openEyes');
+    const closedEyes = document.getElementById('closedEyes');
+    const leftPupil = document.getElementById('leftPupil');
+    const rightPupil = document.getElementById('rightPupil');
+    const eyeIcon = document.getElementById('eyeIcon');
+    const loginBtn = document.getElementById('loginBtn');
 
-    function toggleLock(section, shouldUnlock) {
-        const placeholder = document.getElementById(`${section}-placeholder`);
-        const content = document.getElementById(`${section}-content`);
-        const btn = document.getElementById(`${section}-btn`);
-
-        if (shouldUnlock) {
-            placeholder.style.display = "none";
-            content.style.display = "block";
-            btn.innerHTML = '<i class="fa-solid fa-lock-open"></i> Lock';
-            unlockedState[section] = true;
-        } else {
-            content.style.display = "none";
-            placeholder.style.display = "block";
-            btn.innerHTML = '<i class="fa-solid fa-lock"></i> Unlock';
-            unlockedState[section] = false;
-        }
-
-        checkDownloadVisibility();
-    }
-
-    document.getElementById('pinInput').addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            verifyPin();
-        }
+    // Panda Eye Movement
+    window.addEventListener('mousemove', (e) => {
+      if (document.activeElement === userInput) {
+        const x = (e.clientX / window.innerWidth - 0.5) * 6;
+        const y = (e.clientY / window.innerHeight - 0.5) * 6;
+        leftPupil.setAttribute('transform', `translate(${x}, ${y})`);
+        rightPupil.setAttribute('transform', `translate(${x}, ${y})`);
+      }
     });
-</script>
 
+    passInput.onfocus = function () {
+      openEyes.style.display = 'none';
+      closedEyes.style.display = 'block';
+    };
+
+    passInput.onblur = function () {
+      if (passInput.type === 'password') {
+        openEyes.style.display = 'block';
+        closedEyes.style.display = 'none';
+      }
+    };
+
+    eyeIcon.onclick = function () {
+      if (passInput.type === 'password') {
+        passInput.type = 'text';
+        eyeIcon.classList.replace('fa-eye', 'fa-eye-slash');
+        openEyes.style.display = 'block';
+        closedEyes.style.display = 'none';
+      } else {
+        passInput.type = 'password';
+        eyeIcon.classList.replace('fa-eye-slash', 'fa-eye');
+        openEyes.style.display = 'none';
+        closedEyes.style.display = 'block';
+      }
+    };
+
+    // 🔒 Base64 Encoded Credentials
+    // "forhad" -> "Zm9yaGFk"
+    // "8570" -> "ODU3MA=="
+    const encodedUser = "Zm9yaGFk";
+    const encodedPass = "ODU3MA==";
+
+    // Base64 Verification System
+    function handleLogin() {
+      const u = userInput.value.trim();
+      const p = passInput.value.trim();
+
+      // btoa() converts string to Base64
+      if (btoa(u) === encodedUser && btoa(p) === encodedPass) {
+        modal.classList.remove('show');
+        clockSection.style.display = 'none';
+        cvWrapper.classList.add('show');
+        pdfFooterSection.classList.add('show');
+      } else {
+        document.getElementById('errMsg').style.display = 'block';
+      }
+    }
+
+    loginBtn.onclick = handleLogin;
+
+    passInput.addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        handleLogin();
+      }
+    });
+  </script>
 </body>
 </html>
