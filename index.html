@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MY PERSONAL CV </title>
+  <title>Arachne Clock Access & Glassmorphic CV</title>
   
   <!-- Google Fonts import -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -199,8 +199,11 @@
     .bamboo-wrapper {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 20px;
+      width: 100%;
       max-width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
     }
 
     .lamp-wrapper {
@@ -250,9 +253,10 @@
       margin-top: 8px;
     }
 
+    /* 💡 ল্যাম্প অন বা ক্লোজ করার সময়কার কালার এখানে চেক ও পরিবর্তন করতে পারবেন */
     .lamp-wrapper.active .lamp-shade {
-      background: #ffe2bee0;
-      box-shadow: 0 0 40px #f0c990;
+      background: #00f2fe; /* ল্যাম্প অন হলে এই কালার দেখাবে */
+      box-shadow: 0 0 40px #00f2fe; /* গ্লো বা শ্যাডো কালার */
       animation: dimPulse 2s infinite alternate ease-in-out;
     }
 
@@ -265,8 +269,9 @@
       background: #070c18;
       border: 1px solid rgba(0, 242, 254, 0.3);
       border-radius: 16px;
-      padding: 22px;
-      width: 290px;
+      padding: 18px;
+      width: 100%;
+      max-width: 280px;
       text-align: center;
       position: relative;
       box-shadow: 0 10px 40px rgba(0,0,0,0.8);
